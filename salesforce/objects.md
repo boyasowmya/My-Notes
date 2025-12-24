@@ -1,0 +1,1 @@
+goto setup->search->objects>on right->click new custom object->create a new object->save
