@@ -216,6 +216,52 @@ Step 2: Populate all mandatory fields in existing records
 Step 3: Convert Lookup to Master-Detail relationship
 ```
 
+### Many-to-Many Relationship
+
+**Concept Overview:**
+Many-to-many relationships connect records where each record in one object can relate to multiple records in another object, and vice versa.
+
+#### Implementation via Junction Object
+
+**Key Characteristics:**
+- 🔗 **Junction Object:** Bridge object that creates the many-to-many connection
+- 📊 **Schema Builder:** Visual tool for viewing relationship graphically
+- ⚙️ **Creation:** Junction object contains two Master-Detail relationships
+- 🎯 **Location:** Junction object created as separate entity, not on child objects
+
+#### Practical Example: Student-Course Enrollment
+
+**Scenario Setup:**
+```yaml
+Business Need:
+  - One student can enroll in many courses
+  - One course can have many students enrolled
+  
+Solution Structure:
+  - Student Object (Master)
+  - Course Object (Master)  
+  - Enrollment Object (Junction)
+```
+
+**Relationship Structure:**
+| Object | Relationship Type | Connected To | Purpose |
+|---------|------------------|--------------|----------|
+| **Student** | Master | → Enrollment | Controls student enrollments |
+| **Course** | Master | → Enrollment | Controls course registrations |
+| **Enrollment** | Junction | ↔ Student + Course | Bridge connecting both objects |
+
+#### Schema Builder Navigation
+```
+Setup → Schema Builder → Visual relationship mapping
+Benefit: Graphical representation of all object relationships
+```
+
+**Junction Object Benefits:**
+- ✅ **Flexibility:** Supports complex many-to-many scenarios
+- ✅ **Data Integrity:** Maintains referential integrity through Master-Detail
+- ✅ **Additional Fields:** Can store relationship-specific data (enrollment date, grade, etc.)
+- ✅ **Rollup Summaries:** Supports aggregation on both parent objects
+
 ---
 
 ## <span style="color:#005A9C">Learning Progress Log</span>
@@ -232,5 +278,13 @@ Step 3: Convert Lookup to Master-Detail relationship
 - Dependent picklist configuration
 - List view management
 - Relationship field deep-dive
+
+### December 24, 2025
+**Topics Covered:**
+- Many-to-many relationship concepts
+- Junction object implementation
+- Schema Builder for visual relationship mapping
+- Student-Course enrollment example
+- Junction object creation best practices
 
 ---
