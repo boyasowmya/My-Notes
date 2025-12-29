@@ -263,3 +263,183 @@ Benefit: Graphical representation of all object relationships
 - ✅ **Rollup Summaries:** Supports aggregation on both parent objects
 
 ---
+
+## <span style="color:#005A9C">Page Layouts & User Experience</span>
+
+### Record Types
+
+**What:** Configuration that controls which page layout users see when creating/viewing records
+
+**Why:** Different user groups need different field layouts and processes
+
+**How to Create:**
+```
+Setup → Object Manager → [Object] → Record Types → New
+```
+
+**Use Cases:**
+- Different sales processes for different product lines
+- Varying field requirements for different user roles
+- Customized picklist values per record type
+
+---
+
+### Page Layouts
+
+**What:** Controls the arrangement and visibility of fields, sections, and related lists on record pages
+
+**Step-by-Step Creation:**
+```yaml
+Navigation: Setup → Object Manager → [Object] → Page Layouts
+Process:
+  1. Clone existing layout
+  2. Name the new layout  
+  3. Save layout
+  4. Create new sections
+  5. Drag and drop required fields
+  6. Configure field properties
+```
+
+**Integration with Record Types:**
+- Create page layout first
+- Go to Record Types → Create New → Fill mandatory fields
+- Assign page layout to record type
+- Users will see customized layout when creating records
+
+**Managing Existing Records:**
+- Add Record Type field to page layout
+- Existing records show as "Master" record type
+- Can change record type for existing records
+
+**Picklist Value Control:**
+- Page layouts can restrict picklist values
+- Different record types show different picklist options
+- Improves data quality and user experience
+
+---
+
+### Compact Layouts
+
+**What:** Controls which fields display at the top of record pages (record header)
+
+**Default Behavior:** Only record name shows at top
+
+**Configuration Process:**
+```yaml
+Navigation: Setup → Object Manager → [Object] → Compact Layouts
+Steps:
+  1. Choose fields to display in header
+  2. Save compact layout
+  3. Go to "Edit Assignment"
+  4. Select new compact layout in dropdown
+  5. Save assignment
+```
+
+**Result:** Record header shows selected fields alongside record name
+
+**Benefits:**
+- Quick access to key information
+- Improved record identification
+- Better user experience
+
+---
+
+## <span style="color:#005A9C">Advanced User Interface</span>
+
+### Dynamic Forms
+
+**What:** Enhanced page layout builder allowing conditional field and section visibility
+
+**How to Enable:**
+```yaml
+Navigation: Object → Select Record → Gear Icon → Edit Page
+Process:
+  1. Click "Upgrade Now"
+  2. Save page
+  3. Individual field/section selection becomes available
+```
+
+**Capabilities:**
+- **Field Dependency:** Show/hide fields based on other field values
+- **Section Dependency:** Show/hide entire sections conditionally
+- **Filter Criteria:** Set conditions in right panel for each element
+
+**Implementation Example:**
+```yaml
+Scenario: Show Field B only when Field A has specific value
+Steps:
+  1. Select Field B in builder
+  2. Set filter criteria in right panel
+  3. Define condition (Field A = specific value)
+  4. Save configuration
+```
+
+**Comparison to Dependent Picklist:**
+- Similar concept but applies to any field type
+- Works at section level, not just picklist values
+- More flexible conditional logic
+
+---
+
+### Validation Rules
+
+**What:** Custom business logic that prevents users from saving records with invalid data
+
+**Navigation:** 
+```
+Setup → Object Manager → [Object] → Validation Rules → New
+```
+
+**Components:**
+- **Rule Logic:** Criteria that must be met
+- **Error Message:** Message shown when validation fails
+- **Error Location:** Where error message appears on page
+
+**Use Cases:**
+- Ensure required field combinations
+- Prevent invalid data entry
+- Enforce business rules
+- Maintain data quality
+
+---
+
+## <span style="color:#005A9C">Learning Progress Log</span>
+
+### December 18, 2025
+**Topics Covered:**
+- Field data types fundamentals
+- Picklist variations and implementations
+- Formula field basics
+
+### December 22, 2025  
+**Topics Covered:**
+- Advanced formula field techniques
+- Dependent picklist configuration
+- List view management
+- Relationship field deep-dive
+
+### December 24, 2025
+**Topics Covered:**
+- Many-to-many relationship concepts
+- Junction object implementation
+- Schema Builder for visual relationship mapping
+- Student-Course enrollment example
+- Junction object creation best practices
+
+### December 26, 2025
+**Topics Covered:**
+- Record Types and Page Layouts
+- Page Layout creation and customization
+- Compact Layout configuration
+- Record Type assignment process
+- Picklist value control per layout
+
+### December 29, 2025
+**Topics Covered:**
+- Dynamic Forms implementation
+- Conditional field and section visibility
+- Validation Rules creation
+- Advanced UI customization techniques
+- Business logic enforcement
+
+---
