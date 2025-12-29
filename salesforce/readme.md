@@ -127,3 +127,110 @@ Click "Save" → Object is created and ready to use
 ```
 
 ---
+
+## <span style="color:#005A9C">Navigation Types</span>
+
+### Console Navigation vs Standard Navigation
+
+| Navigation Type | Description | Use Case |
+|-----------------|-------------|----------|
+| **Console Navigation** | Opens records in different tabs for easy viewing | Multi-tasking, comparing records |
+| **Standard Navigation** | Opens all records in the same single tab | Simple navigation, less complex workflows |
+
+### Application Creation Process
+
+**Steps to Create Lightning App:**
+```
+Setup → App Manager → New Lightning App → Create New App → Create Skill Horizon
+```
+
+---
+
+## <span style="color:#005A9C">Field Types & Data Management</span>
+
+### Field Data Types Overview
+
+**Core Field Types:**
+- **Picklist:** Single-selection dropdown values
+- **Global Picklist:** Reusable picklist across multiple objects
+- **Multi-Select Picklist:** Multiple-selection dropdown values  
+- **Formula Fields:** Calculated fields based on other field values
+
+### Advanced Field Configurations
+
+#### Dependent Picklist Setup
+```yaml
+Navigation: Object → Field Relationships → Dependent Field → Create New
+Configuration:
+  - Controller Field: Parent picklist that controls values
+  - Dependent Field: Child picklist with filtered values
+```
+
+**Example Use Case:**
+- Controller: Country (USA, Canada, UK)
+- Dependent: State/Province (filtered by country selection)
+
+---
+
+## <span style="color:#005A9C">Relationship Fields</span>
+
+Both Lookup and Master-Detail relationships follow **one-to-many** patterns but have key differences:
+
+### Lookup Relationship
+
+**Characteristics:**
+- ✅ **Independent:** Child records exist independently
+- ✅ **Flexible:** Parent deletion doesn't affect child records
+- ✅ **Creation:** Lookup field created on child object
+- ❌ **No Rollup Summary:** Cannot create rollup summary fields
+
+**Use Case Example:**
+```yaml
+Scenario: Contact → Account relationship
+Result: If Account is deleted, Contact remains in system
+```
+
+### Master-Detail Relationship
+
+**Characteristics:**
+- 🔗 **Dependent:** Strong parent-child dependency
+- ⚠️ **Cascading Delete:** Parent deletion removes all child records
+- 📊 **Rollup Summary:** Supports aggregation from child to parent
+- 🎯 **One-to-Many:** Follows strict hierarchical structure
+- ⚙️ **Creation:** Master-Detail field created on child object
+
+#### Rollup Summary Features
+**Available Operations:**
+- **COUNT:** Number of child records
+- **SUM:** Total of numeric values
+- **MIN:** Minimum value from child records  
+- **MAX:** Maximum value from child records
+
+#### Implementation Notes
+> **⚠️ Important:** Cannot directly create Master-Detail on existing records
+
+**Migration Process:**
+```yaml
+Step 1: Create Lookup relationship first
+Step 2: Populate all mandatory fields in existing records
+Step 3: Convert Lookup to Master-Detail relationship
+```
+
+---
+
+## <span style="color:#005A9C">Learning Progress Log</span>
+
+### December 18, 2025
+**Topics Covered:**
+- Field data types fundamentals
+- Picklist variations and implementations
+- Formula field basics
+
+### December 22, 2025  
+**Topics Covered:**
+- Advanced formula field techniques
+- Dependent picklist configuration
+- List view management
+- Relationship field deep-dive
+
+---
